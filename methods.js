@@ -12,9 +12,18 @@ export function length() {
 }
 
 export function pop(array) {
-    const param = array[array.length - 1];
-    array.length = array.length - 1;
-    return param;
+    if (array === []) return undefined;
+    else {
+        const param = array[array.length - 1];
+        array.length = array.length - 1;
+        return param;
+    }
 }
-
+export function map(array, myFunction) {
+    const mapArray = [];
+    for (let i = 0; i < array.length; i++) {
+        push(mapArray, myFunction(array[i]));
+    }
+    return mapArray;
+}
 export function shift() {}

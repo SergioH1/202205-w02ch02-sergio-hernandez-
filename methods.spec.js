@@ -1,4 +1,4 @@
-import { push, length, pop } from './methods.js';
+import { push, length, pop, map } from './methods.js';
 
 describe('Given push function', () => {
     describe('When it is run with 0', () => {
@@ -6,6 +6,7 @@ describe('Given push function', () => {
             const aData = [];
             const result = push(aData, 0);
             expect(result).toBe(aData.length);
+            expect(aData).toContain(0);
         });
     });
     describe('When it is run with array and undefined', () => {
@@ -56,6 +57,42 @@ describe('Given pop function', () => {
             const array = [6, 9];
             const result = pop(array);
             expect(result).not.toContain(9);
+        });
+    });
+    describe('When it is run []', () => {
+        test('Then it should return undefon ', () => {
+            const array = [6, 9];
+            const result = pop(array);
+            expect(result).not.toContain(9);
+        });
+    });
+});
+
+describe('Given map function', () => {
+    describe('When receive [5, 10, 15], (i) => i * 10', () => {
+        test('Then it should return [50, 100, 150]', () => {
+            const param1 = [5, 10, 15];
+            const param2 = (i) => i * 10;
+            const result = map(param1, param2);
+            expect(result).toContain(50);
+            expect(result).toContain(100);
+            expect(result).toContain(150);
+        });
+    });
+    describe('When receive [5, 10, 15], (i) => i * 0', () => {
+        test('Then it should return [0, 0, 0]', () => {
+            const param1 = [5, 10, 15];
+            const param2 = (i) => i * 0;
+            const result = map(param1, param2);
+            expect(result).toContain(0);
+        });
+    });
+    describe('When receive [5, 10, 15], (i) => i * NaN', () => {
+        test('Then it should return [0, 0, 0]', () => {
+            const param1 = [5, 10, 15];
+            const param2 = (i) => i * NaN;
+            const result = map(param1, param2);
+            expect(result).toContain(NaN);
         });
     });
 });
