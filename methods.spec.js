@@ -1,4 +1,4 @@
-import { push, length, pop, map } from './methods.js';
+import { push, length, pop, map, shift, some } from './methods.js';
 
 describe('Given push function', () => {
     describe('When it is run with 0', () => {
@@ -35,7 +35,7 @@ describe('Given push function', () => {
 });
 
 describe('Given length function', () => {
-    describe('When it is run aData', () => {
+    describe('When it is run [3]', () => {
         test('Then it should return aData.length', () => {
             const aData = [3];
             const result = length(aData);
@@ -93,6 +93,35 @@ describe('Given map function', () => {
             const param2 = (i) => i * NaN;
             const result = map(param1, param2);
             expect(result).toContainEqual(NaN);
+        });
+    });
+});
+describe('Given shift function', () => {
+    describe('When it is run with array [3,6,12,20]', () => {
+        test('Then it should return removed item ', () => {
+            const array2 = [3, 6, 12, 20];
+            const result = shift(array2);
+            expect(result).toBe(3);
+        });
+    });
+    describe('When it is run with array []', () => {
+        test('Then it should return removed item ', () => {
+            const array2 = [];
+            const result = shift(array2);
+            expect(result).toBe(undefined);
+        });
+    });
+});
+
+describe('Given some function', () => {
+    describe('When it is run with array2,funcition i>10', () => {
+        test('Then it should return false ', () => {
+            const array2 = [2, 3, 9, 0, 1];
+            const param2 = function isBiggerThan10(i) {
+                return i > 10;
+            };
+            const result = some(array2, param2);
+            expect(result).toBe(false);
         });
     });
 });

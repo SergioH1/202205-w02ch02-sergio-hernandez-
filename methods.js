@@ -5,7 +5,6 @@ export function push(array, item) {
     array[array.length] = item;
     return array.length;
 }
-push(array, 0);
 
 export function length() {
     return array.length;
@@ -26,4 +25,25 @@ export function map(array, myFunction) {
     }
     return mapArray;
 }
-export function shift() {}
+export function shift(arrayShift) {
+    let counter = 0;
+    const item = arrayShift[0];
+    if (arrayShift.length === 0) return undefined;
+    else {
+        for (let i = 1; i < arrayShift.length; i++) {
+            arrayShift[counter] = arrayShift[i];
+            counter++;
+        }
+        pop(arrayShift);
+        return item;
+    }
+}
+
+export function unshift() {}
+
+export function some(arraySome, myFunction) {
+    for (let i = 0; i < arraySome.length; i++) {
+        if (myFunction(arraySome[i]) === true) return true;
+    }
+    return false;
+}
