@@ -92,7 +92,7 @@ describe('Given map function', () => {
             const param1 = [5, 10, 15];
             const param2 = (i) => i * NaN;
             const result = map(param1, param2);
-            expect(result).toContain(NaN);
+            expect(result).toContainEqual(NaN);
         });
     });
 });
