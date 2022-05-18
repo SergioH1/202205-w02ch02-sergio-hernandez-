@@ -1,12 +1,11 @@
 // eslint-disable-next-line prefer-const
-const array = [];
 
 export function push(array, item) {
     array[array.length] = item;
     return array.length;
 }
 
-export function length() {
+export function length(array) {
     return array.length;
 }
 
@@ -18,13 +17,7 @@ export function pop(array) {
         return param;
     }
 }
-export function map(array, myFunction) {
-    const mapArray = [];
-    for (let i = 0; i < array.length; i++) {
-        push(mapArray, myFunction(array[i]));
-    }
-    return mapArray;
-}
+
 export function shift(arrayShift) {
     let counter = 0;
     const item = arrayShift[0];
@@ -38,12 +31,36 @@ export function shift(arrayShift) {
         return item;
     }
 }
-
-export function unshift() {}
+export function unshift(array, item) {
+    const counter = [item];
+    for (let i = 0; i < array.length; i++) {
+        push(counter, array[i]);
+    }
+    for (let i = 0; i < counter.length; i++) {
+        array[i] = counter[i];
+    }
+    return array.length;
+}
 
 export function some(arraySome, myFunction) {
     for (let i = 0; i < arraySome.length; i++) {
-        if (myFunction(arraySome[i]) === true) return true;
+        if (myFunction(arraySome[i])) return true;
     }
     return false;
+}
+export function map(mapArray, myFunction) {
+    const mapArray = [];
+    for (let i = 0; i < array.length; i++) {
+        push(mapArray, myFunction(array[i]));
+    }
+    return mapArray;
+}
+
+export function filter(arrayFilter, myFunction) {
+    const arrayFilter = [];
+    for (let i = 0; i < array.length; i++) {
+        if (myFunction(array[i]));
+        push(arrayFilter, array[i]);
+    }
+    return arrayFilter;
 }

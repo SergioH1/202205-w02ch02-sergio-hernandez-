@@ -1,4 +1,13 @@
-import { push, length, pop, map, shift, some } from './methods.js';
+import {
+    push,
+    length,
+    pop,
+    map,
+    shift,
+    some,
+    unshift,
+    filter,
+} from './methods.js';
 
 describe('Given push function', () => {
     describe('When it is run with 0', () => {
@@ -114,10 +123,48 @@ describe('Given shift function', () => {
 });
 
 describe('Given some function', () => {
-    describe('When it is run with array2,funcition i>10', () => {
+    describe('When it is run with array2,function i>10', () => {
         test('Then it should return false ', () => {
             const array2 = [2, 3, 9, 0, 1];
-            const param2 = function isBiggerThan10(i) {
+            const param2 = function isBiggerThan10(i, array2) {
+                return i > 10;
+            };
+            const result = some(array2, param2);
+            expect(result).toBe(false);
+        });
+    });
+    describe('When it is run with array2,function i>10', () => {
+        test('Then it should return false ', () => {
+            const array2 = [2, 3, 9, 11, 1];
+            const param2 = function isBiggerThan10(i, array2) {
+                return i > 10;
+            };
+            const result = some(array2, param2);
+            expect(result).toBe(true);
+        });
+    });
+});
+describe('Given unshift function', () => {
+    describe('When it is run with array,item', () => {
+        test('Then it should return array.length  ', () => {
+            const array2 = [2, 3, 9];
+            const param2 = 15;
+            const result = unshift(array2, param2);
+            expect(result).toBe(4);
+        });
+        test('Then it should return array.length  ', () => {
+            const array2 = [2, 3, 9];
+            const param2 = 15;
+            unshift(array2, param2);
+            expect(array2).toContain(param2);
+        });
+    });
+});
+describe('Given filter function', () => {
+    describe('When it is run with array2,function i>10', () => {
+        test('Then it should return false ', () => {
+            const array2 = [2, 3, 9, 0, 1];
+            const param2 = function isBiggerThan10(i, array2) {
                 return i > 10;
             };
             const result = some(array2, param2);
@@ -125,3 +172,4 @@ describe('Given some function', () => {
         });
     });
 });
+s;
