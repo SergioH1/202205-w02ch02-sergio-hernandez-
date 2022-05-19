@@ -1,13 +1,4 @@
-import {
-    push,
-    length,
-    pop,
-    map,
-    shift,
-    some,
-    unshift,
-    filter,
-} from './methods.js';
+import { push, length, pop, map, shift, some, unshift } from './methods.js';
 
 describe('Given push function', () => {
     describe('When it is run with 0', () => {

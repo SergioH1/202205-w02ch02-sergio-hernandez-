@@ -48,15 +48,15 @@ export function some(arraySome, myFunction) {
     }
     return false;
 }
-export function map(mapArray, myFunction) {
-    const mapArray = [];
+export function map(array, myFunction) {
+    const mapArray2 = [];
     for (let i = 0; i < array.length; i++) {
-        push(mapArray, myFunction(array[i]));
+        push(mapArray2, myFunction(array[i]));
     }
-    return mapArray;
+    return mapArray2;
 }
 
-export function filter(arrayFilter, myFunction) {
+export function filter(array, myFunction) {
     const arrayFilter = [];
     for (let i = 0; i < array.length; i++) {
         if (myFunction(array[i]));
