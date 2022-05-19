@@ -172,4 +172,3 @@ describe('Given filter function', () => {
         });
     });
 });
-s;
