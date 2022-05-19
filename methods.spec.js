@@ -117,7 +117,7 @@ describe('Given some function', () => {
     describe('When it is run with array2,function i>10', () => {
         test('Then it should return false ', () => {
             const array2 = [2, 3, 9, 0, 1];
-            const param2 = function isBiggerThan10(i, array2) {
+            const param2 = function isBiggerThan10(i) {
                 return i > 10;
             };
             const result = some(array2, param2);
@@ -127,7 +127,7 @@ describe('Given some function', () => {
     describe('When it is run with array2,function i>10', () => {
         test('Then it should return false ', () => {
             const array2 = [2, 3, 9, 11, 1];
-            const param2 = function isBiggerThan10(i, array2) {
+            const param2 = function isBiggerThan10(i) {
                 return i > 10;
             };
             const result = some(array2, param2);
@@ -148,18 +148,6 @@ describe('Given unshift function', () => {
             const param2 = 15;
             unshift(array2, param2);
             expect(array2).toContain(param2);
-        });
-    });
-});
-describe('Given filter function', () => {
-    describe('When it is run with array2,function i>10', () => {
-        test('Then it should return false ', () => {
-            const array2 = [2, 3, 9, 0, 1];
-            const param2 = function isBiggerThan10(i, array2) {
-                return i > 10;
-            };
-            const result = some(array2, param2);
-            expect(result).toBe(false);
         });
     });
 });
